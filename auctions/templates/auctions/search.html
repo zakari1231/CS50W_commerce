@@ -1,0 +1,37 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}Search{% endblock title %}
+
+{% block body %}
+    {% comment %} <form name="myform" method="GET" action="{% url 'search' %}">
+        <input list="listing" class = "form-control">
+            <datalist id="listing">
+                {% for listing in listings %}
+                    <option value="{{listing.title}}">
+                    {% empty %}
+                    <option value="nothing to search here :'( ">
+                {% endfor %}
+    </form>  {% endcomment %}
+
+
+    <h1>Search Results</h1>
+
+        <hr>
+            {% if results %}
+                {% for result in results %}
+                    <li>{{result.title}}</li>
+                    {% empty %}
+                        empty
+                {% endfor %} 
+            {% endif %}
+        
+        <hr>
+        {% comment %} {% for result in results %}
+                    <li>{{result.title}}<li>
+
+                    {% comment %} <option value="listing">
+                    {% empty %}
+                    empty
+        {% endfor %} {% endcomment %}
+
+{% endblock %}
